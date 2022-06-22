@@ -4,6 +4,10 @@ import Rete from "rete";
 import ConnectionPlugin from 'rete-connection-plugin';
 import VueRenderPlugin from 'rete-vue-render-plugin';
 import ContextMenuPlugin from 'rete-context-menu-plugin';
+import KeyboardPlugin from 'rete-keyboard-plugin';
+import MinimapPlugin from 'rete-minimap-plugin';
+import HistoryPlugin from 'rete-history-plugin';
+// import AreaPlugin from "rete-area-plugin";
 
 import { numSocket, anySocket } from './sockets.js';
 import { OutputComponent } from "./components/outputComponent.js";
@@ -193,8 +197,12 @@ export async function createEditor(){
     const container = document.querySelector('#rete');
     const editor = new Rete.NodeEditor('demo@0.1.0', container);
 
-    editor.use(ConnectionPlugin)
-    editor.use(VueRenderPlugin)
+    editor.use(ConnectionPlugin);
+    editor.use(VueRenderPlugin);
+    editor.use(KeyboardPlugin);
+    editor.use(MinimapPlugin);
+    editor.use(HistoryPlugin, { keyboard: true });
+    // editor.use(AreaPlugin);
     editor.use(ContextMenuPlugin, {
         searchBar: false,
         delay: 0,

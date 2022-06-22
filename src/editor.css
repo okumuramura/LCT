@@ -18,7 +18,7 @@ body {
 }
 
 .node.selected {
-  background: #738fb8 !important;
+  background: #738fb8c5 !important;
   border: 2px solid white !important;
 }
 
@@ -59,5 +59,5 @@ input {
 }
 
 #rete .context-menu .item:hover {
-  background-color: #738fb8 !important;
+  background-color: #738fb8c5 !important;
 }

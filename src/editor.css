@@ -1,0 +1,63 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#rete {
+  background-color: #ffffff;
+}
+.node {
+  background: rgba(101, 101, 101, 0.8) !important;
+  border: 0px solid #333 !important;
+  box-shadow: 2px 2px 5px #888;
+  border-radius: 0 !important;
+}
+.node:hover {
+  background: rgba(120, 120, 120, 0.8) !important;
+}
+
+.node.selected {
+  background: #738fb8 !important;
+  border: 2px solid white !important;
+}
+
+.node .title {
+  color: #ffffff !important;
+}
+.node .input-title,
+.node .output-title {
+  margin: 0px 5px !important;
+}
+.socket {
+  width: 20px !important;
+  height: 20px !important;
+  background: #96b38a !important;
+}
+.socket.output {
+  background: #d06363 !important;
+}
+
+.connection .main-path {
+  stroke: #9a9a9a !important;
+  stroke-width: 2px !important;
+}
+
+select,
+input {
+  width: 100px;
+  /* border-radius: 5px; */
+  padding: 2px 6px;
+}
+
+#rete .context-menu .item {
+  background-color: #333333dd !important;
+  border: 0px solid white !important;
+  padding: 5px 10px !important;
+  font-family: sans-serif !important;
+  border-radius: 0;
+}
+
+#rete .context-menu .item:hover {
+  background-color: #738fb8 !important;
+}

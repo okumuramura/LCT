@@ -18,13 +18,13 @@ export default {
 
 <style>
 #app {
-    width: 95%;
-    height: 600px;
+    width: 100%;
+    height: 100%;
 }
 
 #rete {
     margin: 0 auto;
-    width: 99%;
+    width: 100%;
     height: 100%;
     border: 1px solid #333;
 }

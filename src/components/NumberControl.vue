@@ -5,16 +5,18 @@
   :value="value"
   @input="onChange($event)"
   @dblclick.stop=""
+  @pointerdown.stop=""
+  @pointermove.stop=""
   @mousedown.stop
   />
 </template>
 
 <script>
 export default {
-  props: ['initial', 'readonly', 'emitter', 'ikey', 'type', 'change', 'getData', 'putData'],
+  props: ['initial', 'readonly', 'emitter', 'ikey', 'type', 'getData', 'putData'],
   data() {
     return {
-      value: 0, // this.initial || 0,
+      value: this.initial || 0,
     }
   },
   methods: {
@@ -27,15 +29,20 @@ export default {
     },
     update() {
       if (this.ikey) {
-        this.putData(this.ikey, this.value)
-        this.change(this.value);
+        this.putData(this.ikey, this.value);
       }
       this.emitter.trigger('process');
     }
   },
   mounted() {
-    let value = this.getData(this.ikey)
-    this.value = value;
+    if (this.getData(this.ikey) === undefined){
+      this.value = this.initial;
+      this.putData(this.ikey, this.initial);
+    }
+    else {
+      this.value = this.getData(this.ikey);
+    }
+    
   }
 }
 </script>

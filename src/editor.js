@@ -9,187 +9,186 @@ import MinimapPlugin from 'rete-minimap-plugin';
 import HistoryPlugin from 'rete-history-plugin';
 // import AreaPlugin from "rete-area-plugin";
 
-import { numSocket, anySocket } from './sockets.js';
 import { OutputComponent } from "./components/outputComponent.js";
 import { NumberComponent } from "./components/numberComponent.js"
 import { SumComponent } from "./components/sumComponent.js"
 import { MinComponent } from "./components/minComponent"
 
 const testData = {
-    "id": "demo@0.1.0",
-    "nodes": {
-      "1": {
-        "id": 1,
-        "data": {
-          "num": 10
-        },
-        "inputs": {},
-        "outputs": {
-          "num": {
-            "connections": [
-              {
-                "node": 2,
-                "input": "num1",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          391.8833312988281,
-          67
-        ],
-        "name": "Number"
+  "id": "demo@0.1.0",
+  "nodes": {
+    "1": {
+      "id": 1,
+      "data": {
+        "num": 10
       },
-      "2": {
-        "id": 2,
-        "data": {},
-        "inputs": {
-          "num1": {
-            "connections": [
-              {
-                "node": 1,
-                "output": "num",
-                "data": {}
-              }
-            ]
-          },
-          "num2": {
-            "connections": [
-              {
-                "node": 4,
-                "output": "num",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "outputs": {
-          "out": {
-            "connections": [
-              {
-                "node": 3,
-                "input": "in1",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          684.8833312988281,
-          106
-        ],
-        "name": "Sum"
+      "inputs": {},
+      "outputs": {
+        "num": {
+          "connections": [
+            {
+              "node": 2,
+              "input": "num1",
+              "data": {}
+            }
+          ]
+        }
       },
-      "3": {
-        "id": 3,
-        "data": {},
-        "inputs": {
-          "in1": {
-            "connections": [
-              {
-                "node": 2,
-                "output": "out",
-                "data": {}
-              }
-            ]
-          },
-          "in2": {
-            "connections": [
-              {
-                "node": 6,
-                "output": "num",
-                "data": {}
-              }
-            ]
-          }
+      "position": [
+        391.8833312988281,
+        67
+      ],
+      "name": "Number"
+    },
+    "2": {
+      "id": 2,
+      "data": {},
+      "inputs": {
+        "num1": {
+          "connections": [
+            {
+              "node": 1,
+              "output": "num",
+              "data": {}
+            }
+          ]
         },
-        "outputs": {
-          "out": {
-            "connections": [
-              {
-                "node": 5,
-                "input": "in",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          982.8833312988281,
-          269
-        ],
-        "name": "Min"
+        "num2": {
+          "connections": [
+            {
+              "node": 4,
+              "output": "num",
+              "data": {}
+            }
+          ]
+        }
       },
-      "4": {
-        "id": 4,
-        "data": {
-          "num": 20
-        },
-        "inputs": {},
-        "outputs": {
-          "num": {
-            "connections": [
-              {
-                "node": 2,
-                "input": "num2",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          389.8833312988281,
-          200
-        ],
-        "name": "Number"
+      "outputs": {
+        "out": {
+          "connections": [
+            {
+              "node": 3,
+              "input": "in1",
+              "data": {}
+            }
+          ]
+        }
       },
-      "5": {
-        "id": 5,
-        "data": {},
-        "inputs": {
-          "in": {
-            "connections": [
-              {
-                "node": 3,
-                "output": "out",
-                "data": {}
-              }
-            ]
-          }
+      "position": [
+        684.8833312988281,
+        106
+      ],
+      "name": "Sum"
+    },
+    "3": {
+      "id": 3,
+      "data": {},
+      "inputs": {
+        "in1": {
+          "connections": [
+            {
+              "node": 2,
+              "output": "out",
+              "data": {}
+            }
+          ]
         },
-        "outputs": {},
-        "position": [
-          1291.8833312988281,
-          333
-        ],
-        "name": "Output"
+        "in2": {
+          "connections": [
+            {
+              "node": 6,
+              "output": "num",
+              "data": {}
+            }
+          ]
+        }
       },
-      "6": {
-        "id": 6,
-        "data": {
-          "num": 50
-        },
-        "inputs": {},
-        "outputs": {
-          "num": {
-            "connections": [
-              {
-                "node": 3,
-                "input": "in2",
-                "data": {}
-              }
-            ]
-          }
-        },
-        "position": [
-          388.8833312988281,
-          441
-        ],
-        "name": "Number"
-      }
+      "outputs": {
+        "out": {
+          "connections": [
+            {
+              "node": 5,
+              "input": "in",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "position": [
+        982.8833312988281,
+        269
+      ],
+      "name": "Min"
+    },
+    "4": {
+      "id": 4,
+      "data": {
+        "num": 20
+      },
+      "inputs": {},
+      "outputs": {
+        "num": {
+          "connections": [
+            {
+              "node": 2,
+              "input": "num2",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "position": [
+        389.8833312988281,
+        200
+      ],
+      "name": "Number"
+    },
+    "5": {
+      "id": 5,
+      "data": {},
+      "inputs": {
+        "in": {
+          "connections": [
+            {
+              "node": 3,
+              "output": "out",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "outputs": {},
+      "position": [
+        1291.8833312988281,
+        333
+      ],
+      "name": "Output"
+    },
+    "6": {
+      "id": 6,
+      "data": {
+        "num": 50
+      },
+      "inputs": {},
+      "outputs": {
+        "num": {
+          "connections": [
+            {
+              "node": 3,
+              "input": "in2",
+              "data": {}
+            }
+          ]
+        }
+      },
+      "position": [
+        388.8833312988281,
+        441
+      ],
+      "name": "Number"
     }
   }
+}
 
 
 export async function createEditor(){
@@ -222,16 +221,17 @@ export async function createEditor(){
     const numComponent = new NumberComponent();
     const sumComponent = new SumComponent();
     const minComponent = new MinComponent();
+    const outputComponent = new OutputComponent();
     editor.register(numComponent);
     editor.register(sumComponent);
     editor.register(minComponent);
-    editor.register(new OutputComponent());
+    editor.register(outputComponent);
 
     const engine = new Rete.Engine('demo@0.1.0');
     engine.register(numComponent);
     engine.register(sumComponent);
     engine.register(minComponent);
-    engine.register(new OutputComponent());
+    engine.register(outputComponent);
 
     editor.fromJSON(testData);
 

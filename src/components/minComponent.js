@@ -1,24 +1,19 @@
-import Rete from "rete";
+import Logger from "js-logger";
 
-import { numSocket } from "../sockets.js";
+import { BinaryOperator } from "./binaryOperator.js";
 
-export class MinComponent extends Rete.Component {
+
+export class MinComponent extends BinaryOperator {
     constructor() {
-        super('Min');
+        super('Minumum', 'num 1', 'num 2', 'min');
     }
 
-    builder(node) {
-        let input1 = new Rete.Input('in1', 'num 1', numSocket);
-        let input2 = new Rete.Input('in2', 'num 2', numSocket);
+    worker(node, inputs, outputs) {
+        let n1 = inputs['num1'].length ? inputs['num1'][0] : node.data.num1;
+        let n2 = inputs['num2'].length ? inputs['num2'][0] : node.data.num2;
 
-        let output = new Rete.Output('out', 'min', numSocket);
+        outputs['out'] = Math.min(n1, n2);
 
-        node.addInput(input1);
-        node.addInput(input2);
-        node.addOutput(output);
-    }
-
-    async worker(node, inputs, outputs) {
-        outputs['out'] = Math.min(inputs['in1'], inputs['in2']);
+        Logger.debug('min node [id:%d] output: %d', node.id, outputs['out']);
     }
 }

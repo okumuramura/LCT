@@ -21,160 +21,7 @@ import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
 import Logger from "js-logger";
 
-const testData = {
-  "id": "demo@0.1.0",
-  "nodes": {
-    "2": {
-      "id": 2,
-      "data": {
-        "num": 20
-      },
-      "inputs": {},
-      "outputs": {
-        "num": {
-          "connections": [
-            {
-              "node": 4,
-              "input": "num2",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "position": [
-        346,
-        281
-      ],
-      "name": "Number"
-    },
-    "3": {
-      "id": 3,
-      "data": {
-        "num": 40
-      },
-      "inputs": {},
-      "outputs": {
-        "num": {
-          "connections": [
-            {
-              "node": 5,
-              "input": "num2",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "position": [
-        341,
-        519
-      ],
-      "name": "Number"
-    },
-    "4": {
-      "id": 4,
-      "data": {
-        "num1": 10,
-        "num2": 0
-      },
-      "inputs": {
-        "num1": {
-          "connections": []
-        },
-        "num2": {
-          "connections": [
-            {
-              "node": 2,
-              "output": "num",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "outputs": {
-        "out": {
-          "connections": [
-            {
-              "node": 5,
-              "input": "num1",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "position": [
-        654,
-        172
-      ],
-      "name": "Sum"
-    },
-    "5": {
-      "id": 5,
-      "data": {
-        "num1": 0,
-        "num2": 0
-      },
-      "inputs": {
-        "num1": {
-          "connections": [
-            {
-              "node": 4,
-              "output": "out",
-              "data": {}
-            }
-          ]
-        },
-        "num2": {
-          "connections": [
-            {
-              "node": 3,
-              "output": "num",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "outputs": {
-        "out": {
-          "connections": [
-            {
-              "node": 6,
-              "input": "in",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "position": [
-        931,
-        321
-      ],
-      "name": "Minumum"
-    },
-    "6": {
-      "id": 6,
-      "data": {
-        "output_view": 0
-      },
-      "inputs": {
-        "in": {
-          "connections": [
-            {
-              "node": 5,
-              "output": "out",
-              "data": {}
-            }
-          ]
-        }
-      },
-      "outputs": {},
-      "position": [
-        1253,
-        330
-      ],
-      "name": "Output"
-    }
-  }
-}
+const testData = require('./editor.json');
 
 
 export async function createEditor(){
@@ -187,7 +34,12 @@ export async function createEditor(){
     editor.use(KeyboardPlugin);
     editor.use(MinimapPlugin);
     editor.use(HistoryPlugin, { keyboard: true });
-    // editor.use(AreaPlugin);
+    // editor.use(AreaPlugin, {
+    //   background: false,
+    //   snap: false,
+    //   scaleExtent: { min: 0.1, max: 1 },
+    //   translateExtent: { width: 2000, height: 4000 }
+    // });
     editor.use(ContextMenuPlugin, {
         searchBar: false,
         delay: 0,
@@ -247,6 +99,13 @@ export async function createEditor(){
         await engine.process(editor.toJSON());
         // console.log(editor.toJSON());
     });
+
+    editor.on('keydown', (e) => {
+      if (e.key == 'Home')
+        editor.view.area.zoom(1, 0, 0);
+        editor.view.area.translate(0, 0);
+        editor.trigger('process');
+    })
 
     // editor.on('scheduled', (data) => {
     //   Logger.info('scedule triggered');

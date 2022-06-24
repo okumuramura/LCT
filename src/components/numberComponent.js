@@ -10,7 +10,7 @@ export class NumberComponent extends Rete.Component {
     }
   
     builder(node) {
-      let out = new Rete.Output('num', 'Number', numSocket);
+      let out = new Rete.Output('num', 'number', numSocket);
 
 
       node.addControl(new InputControl(this.editor, "num"));

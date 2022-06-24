@@ -5,7 +5,7 @@ import { BinaryOperator } from "./binaryOperator.js";
 
 export class MinComponent extends BinaryOperator {
     constructor() {
-        super('Minumum', 'num 1', 'num 2', 'min');
+        super('Minumum', 'min');
         this.contextSubmenu = ['logic'];
     }
 

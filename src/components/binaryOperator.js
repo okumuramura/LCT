@@ -6,7 +6,7 @@ import { InputControl } from '../controls/InputControl.js';
 
 
 export class BinaryOperator extends Rete.Component {
-    constructor(title, in1 = 'num 1', in2 = 'num 2', out = 'out') {
+    constructor(title, out = 'out', in1 = 'number 1', in2 = 'number 2') {
         super(title);
         this.titles = {
             in1: in1,

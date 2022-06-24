@@ -45,6 +45,10 @@ body {
   stroke-width: 2px !important;
 }
 
+.node input[type='checkbox'] {
+  width: min-content;
+}
+
 select,
 input {
   width: 100px;

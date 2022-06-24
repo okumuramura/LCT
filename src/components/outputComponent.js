@@ -4,7 +4,7 @@ import Rete from "rete";
 import Logger from "js-logger";
 
 import { anySocket } from "../sockets.js";
-import { NumControl } from "../controls/numberControl.js";
+import { InputControl } from "../controls/InputControl.js";
 
 export class OutputComponent extends Rete.Component {
     constructor() {
@@ -15,7 +15,7 @@ export class OutputComponent extends Rete.Component {
         let input = new Rete.Input('in', 'in', anySocket);
         
         node.addInput(input);
-        node.addControl(new NumControl(this.editor, 'output_view', true, 'text'))
+        node.addControl(new InputControl(this.editor, 'output_view', true, 'text'))
     }
 
     worker(node, inputs, outputs) {

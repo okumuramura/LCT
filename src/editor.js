@@ -14,6 +14,12 @@ import { NumberComponent } from "./components/numberComponent.js"
 import { SumComponent } from "./components/sumComponent.js"
 import { MinComponent } from "./components/minComponent.js"
 import { TestNode } from "./components/testNode.js";
+import { ObjectComponent } from "./components/objectComponent.js";
+import { StringComponent } from "./components/stringComponent.js";
+
+import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
+import { APIComponent } from "./components/objects/APIComponent.js";
+import Logger from "js-logger";
 
 const testData = {
   "id": "demo@0.1.0",
@@ -202,6 +208,11 @@ export async function createEditor(){
     const sumComponent = new SumComponent();
     const minComponent = new MinComponent();
     const outputComponent = new OutputComponent();
+    const objectComponent = new ObjectComponent();
+    const stringComponent = new StringComponent();
+
+    const scheduleComponent = new ScheduleComponent();
+    const apiComponent = new APIComponent();
 
     const testNode = new TestNode();
     editor.register(numComponent);
@@ -209,6 +220,12 @@ export async function createEditor(){
     editor.register(minComponent);
     editor.register(outputComponent);
     editor.register(testNode);
+    editor.register(objectComponent);
+    editor.register(stringComponent);
+    editor.register(apiComponent);
+
+    editor.register(scheduleComponent);
+
 
     const engine = new Rete.Engine('demo@0.1.0');
     engine.register(numComponent);
@@ -216,6 +233,11 @@ export async function createEditor(){
     engine.register(minComponent);
     engine.register(outputComponent);
     engine.register(testNode);
+    engine.register(objectComponent);
+    engine.register(stringComponent);
+
+    engine.register(apiComponent);
+    engine.register(scheduleComponent);
 
     editor.fromJSON(testData);
 
@@ -224,6 +246,10 @@ export async function createEditor(){
         await engine.process(editor.toJSON());
         // console.log(editor.toJSON());
     });
+
+    // editor.on('scheduled', (data) => {
+    //   Logger.info('scedule triggered');
+    // })
 
     editor.view.resize();
     editor.trigger("process");

@@ -2,7 +2,7 @@ import Rete from 'rete';
 import Logger from 'js-logger';
 
 import { numSocket } from '../sockets';
-import { NumControl } from '../controls/numberControl.js';
+import { InputControl } from '../controls/InputControl.js';
 
 
 export class BinaryOperator extends Rete.Component {
@@ -20,8 +20,8 @@ export class BinaryOperator extends Rete.Component {
         let in2 = new Rete.Input('num2', this.titles.in2, numSocket);
         let out = new Rete.Output('out', this.titles.out, numSocket)
 
-        in1.addControl(new NumControl(this.editor, 'num1'));
-        in2.addControl(new NumControl(this.editor, 'num2'));
+        in1.addControl(new InputControl(this.editor, 'num1'));
+        in2.addControl(new InputControl(this.editor, 'num2'));
 
         node.addInput(in1);
         node.addInput(in2);

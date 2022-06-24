@@ -1,7 +1,7 @@
 import Rete from 'rete';
 
-import { DropdownControl } from '../controls/dropdownControl';
-import { numSocket } from '../sockets';
+import { CheckboxControl } from '../controls/CheckboxControl';
+import { anySocket } from '../sockets';
 
 export class TestNode extends Rete.Component {
     constructor() {
@@ -9,10 +9,10 @@ export class TestNode extends Rete.Component {
     }
   
     builder(node) {
-      let out = new Rete.Output('num', 'Number', numSocket);
+      let out = new Rete.Output('num', 'Number', anySocket);
 
 
-      node.addControl(new DropdownControl(this.editor, "num"));
+      node.addControl(new CheckboxControl(this.editor, "num"));
       node.addOutput(out);
     }
   

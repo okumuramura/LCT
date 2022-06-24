@@ -1,6 +1,6 @@
 import Rete from 'rete';
 
-import { NumControl } from '../controls/numberControl';
+import { InputControl } from '../controls/InputControl';
 import { numSocket } from '../sockets';
 
 export class NumberComponent extends Rete.Component {
@@ -12,7 +12,7 @@ export class NumberComponent extends Rete.Component {
       let out = new Rete.Output('num', 'Number', numSocket);
 
 
-      node.addControl(new NumControl(this.editor, "num"));
+      node.addControl(new InputControl(this.editor, "num"));
       node.addOutput(out);
     }
   

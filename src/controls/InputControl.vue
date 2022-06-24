@@ -3,6 +3,7 @@
   :type="type"
   :readonly="readonly"
   :value="value"
+  :placeholder="placeholder"
   @input="onChange($event)"
   @dblclick.stop=""
   @pointerdown.stop=""
@@ -13,7 +14,7 @@
 
 <script>
 export default {
-  props: ['initial', 'readonly', 'emitter', 'ikey', 'type', 'getData', 'putData'],
+  props: ['initial', 'readonly', 'placeholder', 'emitter', 'ikey', 'type', 'getData', 'putData'],
   data() {
     return {
       value: this.initial || 0,

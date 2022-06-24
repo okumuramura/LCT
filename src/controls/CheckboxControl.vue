@@ -43,7 +43,7 @@ export default {
             this.putData(this.ikey, this.checked);
         }
         else {
-            this.value = this.getData(this.ikey);
+            this.checked = this.getData(this.ikey);
         }
     }
 }

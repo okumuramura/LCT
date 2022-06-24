@@ -97,7 +97,7 @@ export async function createEditor(){
     editor.on('process nodecreated noderemoved connectioncreated connectionremoved', async () => {
         await engine.abort();
         await engine.process(editor.toJSON());
-        // console.log(editor.toJSON());
+        Logger.debug(editor.toJSON());
     });
 
     editor.on('keydown', (e) => {

@@ -8,6 +8,7 @@ import Logger from 'js-logger';
 export class APIComponent extends Rete.Component {
     constructor() {
         super('API Request');
+        this.contextSubmenu = [];
     }
 
     builder(node) {

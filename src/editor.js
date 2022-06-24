@@ -192,12 +192,13 @@ export async function createEditor(){
         searchBar: false,
         delay: 0,
         items: {
-            "lol": () => {alert('lol')}
+            
         },
         allocate(component) {
-            if (component.name == 'Sum')
-                return ['arithmetic']
-			return ["+ New"];
+            if (component.contextSubmenu === undefined)
+              return [];
+            else
+              return component.contextSubmenu;
 		},
 		rename(component) {
 			return component.name;

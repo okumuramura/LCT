@@ -9,6 +9,7 @@ import { InputControl } from "../controls/InputControl.js";
 export class OutputComponent extends Rete.Component {
     constructor() {
         super('Output');
+        this.contextSubmenu = ['base'];
     }
 
     builder(node) {

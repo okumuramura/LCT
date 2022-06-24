@@ -6,6 +6,7 @@ import { BinaryOperator } from "./binaryOperator";
 export class SumComponent extends BinaryOperator {
     constructor() {
         super('Sum', 'num 1', 'num 2', 'sum');
+        this.contextSubmenu = ['arithmetic'];
     }
 
     worker(node, inputs, outputs){

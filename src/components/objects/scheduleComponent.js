@@ -9,6 +9,7 @@ import Logger from 'js-logger';
 export class ScheduleComponent extends Rete.Component {
     constructor() {
         super('Schedule');
+        this.contextSubmenu = [];
     }
 
     builder(node) {

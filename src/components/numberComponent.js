@@ -6,6 +6,7 @@ import { numSocket } from '../sockets';
 export class NumberComponent extends Rete.Component {
     constructor() {
       super('Number');
+      this.contextSubmenu = ['base'];
     }
   
     builder(node) {

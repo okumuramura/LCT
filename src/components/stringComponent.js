@@ -7,6 +7,7 @@ import { InputControl } from '../controls/InputControl';
 export class StringComponent extends Rete.Component {
     constructor() {
         super('String');
+        this.contextSubmenu = ['base'];
     }
 
     builder(node) {

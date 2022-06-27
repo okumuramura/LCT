@@ -42,6 +42,8 @@ export class ArithmeticComponent extends BinaryOperator {
                 break;
         }
 
+        Logger.debug('arithmetic node [id:%d]: %s %s %s = %s', node.id, n1, node.data.operation, n2, result);
+
         outputs['out'] = result;
     } 
 }

@@ -36,6 +36,24 @@ export class APIComponent extends Rete.Component {
 
         Logger.debug('api request id:%d [%s:%d, %s]', node.id, host, port, trigger);
         
+        // let response = await fetch(
+        //     'https://' + host + ":" + port,
+        //     {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: body
+        //     }
+        // )
+
+        // response.json().then(
+        //     data => {
+        //         this.editor.trigger('process');
+        //         outputs['status'] = 200;
+        //     }
+        // )
+
         outputs['status'] = 200;
     }
 }

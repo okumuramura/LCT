@@ -15,6 +15,7 @@ body {
   box-shadow: 2px 2px 5px #888;
   border-radius: 0 !important;
   color: white;
+  font-family: sans-serif;
 }
 .node:hover {
   background: rgba(120, 120, 120, 0.8) !important;
@@ -22,7 +23,7 @@ body {
 
 .node.selected {
   background: #738fb8c5 !important;
-  border: 2px solid white !important;
+  border: 1px solid white !important;
 }
 
 .node .title {
@@ -58,7 +59,6 @@ input {
 }
 
 .minimap {
-  right: inherit;
   left: 24px;
 }
 
@@ -73,3 +73,22 @@ input {
 #rete .context-menu .item:hover {
   background-color: #738fb8c5 !important;
 }
+
+#json-output {
+  padding-left: 5px;
+  width: 20%;
+  border-left: 1px solid black;
+  height: auto;
+  max-height: 100%;
+  overflow: auto;
+  /* background-color: #eeeeee; */
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: pre !important;
+}
+
+.json-string { color: olive; }
+.json-number { color: navy; }
+.json-boolean { color: blue; }
+.json-null { color: magenta; }
+.json-key { color: brown; }

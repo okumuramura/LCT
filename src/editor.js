@@ -18,6 +18,7 @@ import { TestNode } from "./components/testNode.js";
 import { ObjectComponent } from "./components/objectComponent.js";
 import { StringComponent } from "./components/stringComponent.js";
 import { EqualComponent } from "./components/equalComponent.js";
+import { ArithmeticComponent } from "./components/arithmeticComponent.js";
 
 import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
@@ -69,6 +70,7 @@ export async function createEditor(){
     const objectComponent = new ObjectComponent();
     const stringComponent = new StringComponent();
     const equalComponent = new EqualComponent();
+    const arithmeticComponent = new ArithmeticComponent();
     const scheduleComponent = new ScheduleComponent();
     const apiComponent = new APIComponent();
     const mercuryComponent = new MercuryComponent();
@@ -86,6 +88,7 @@ export async function createEditor(){
     editor.register(mercuryComponent);
     editor.register(scheduleComponent);
     editor.register(equalComponent);
+    editor.register(arithmeticComponent);
 
 
     const engine = new Rete.Engine('demo@0.1.0');
@@ -98,6 +101,7 @@ export async function createEditor(){
     engine.register(objectComponent);
     engine.register(stringComponent);
     engine.register(equalComponent);
+    engine.register(arithmeticComponent);
 
     engine.register(apiComponent);
     engine.register(scheduleComponent);

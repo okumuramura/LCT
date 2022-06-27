@@ -1,36 +1,28 @@
 <template>
-  <div>
-    <v-select v-model="selected" :options="options"></v-select>
-    <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
-  </div>
+  <form
+  @dblclick.stop=""
+  @pointerdown.stop=""
+  @pointermove.stop=""
+  @mousedown.stop>
+    {{ label }}
+    <select @change="onChange($event)" v-model="value">
+      <option v-for="option in options" :value="option">{{ option }}</option>
+    </select>
+  </form>
 </template>
 
 <script>
 export default {
-  props: ['initial', 'readonly', 'emitter', 'ikey', 'type', 'getData', 'putData'],
+  props: ['initial', 'readonly', 'label', 'options', 'emitter', 'ikey', 'type', 'getData', 'putData'],
   data() {
     return {
-      selected: null,
-        options: [
-          { value: null, text: 'Please select an option' },
-          { value: 'a', text: 'This is First option' },
-          { value: 'b', text: 'Selected Option', disabled: true },
-          {
-            label: 'Grouped options',
-            options: [
-              { value: { C: '3PO' }, text: 'Option with object value' },
-              { value: { R: '2D2' }, text: 'Another option with object value' }
-            ]
-          }
-        ]
+      value: this.initial || ''
     }
   },
   methods: {
-    parse(value) {
-      return this.type === 'number' ? +value : value;
-    },
     onChange(e){
-      this.value = this.parse(e.target.value);
+      console.log(e.target.value);
+      this.value = e.target.value;
       this.update();
     },
     update() {
@@ -48,7 +40,6 @@ export default {
     else {
       this.value = this.getData(this.ikey);
     }
-    
   }
 }
 </script>

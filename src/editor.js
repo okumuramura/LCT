@@ -23,6 +23,7 @@ import { ArithmeticComponent } from "./components/arithmeticComponent.js";
 import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
 import { MercuryComponent } from "./components/objects/Mercury.js";
+import { MQTTComponent } from "./components/objects/MQTTComponent.js";
 import Logger from "js-logger";
 
 const testData = require('./editor.json');
@@ -96,6 +97,7 @@ export async function createEditor(){
     const scheduleComponent = new ScheduleComponent();
     const apiComponent = new APIComponent();
     const mercuryComponent = new MercuryComponent();
+    const mqttComponent = new MQTTComponent();
 
     const testNode = new TestNode();
     editor.register(numComponent);
@@ -111,6 +113,7 @@ export async function createEditor(){
     editor.register(scheduleComponent);
     editor.register(equalComponent);
     editor.register(arithmeticComponent);
+    editor.register(mqttComponent);
 
 
     const engine = new Rete.Engine('demo@0.1.0');
@@ -128,6 +131,7 @@ export async function createEditor(){
     engine.register(apiComponent);
     engine.register(scheduleComponent);
     engine.register(mercuryComponent);
+    engine.register(mqttComponent);
 
     editor.fromJSON(testData);
 

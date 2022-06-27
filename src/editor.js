@@ -27,6 +27,7 @@ const testData = require('./editor.json');
 export async function createEditor(){
 
     const container = document.querySelector('#rete');
+    const json_output = document.querySelector('#json-output')
     const editor = new Rete.NodeEditor('demo@0.1.0', container);
 
     editor.use(ConnectionPlugin);
@@ -97,6 +98,7 @@ export async function createEditor(){
     editor.on('process nodecreated noderemoved connectioncreated connectionremoved', async () => {
         await engine.abort();
         await engine.process(editor.toJSON());
+        json_output.textContent = JSON.stringify(editor.toJSON(), null, '   ')
         Logger.debug(editor.toJSON());
     });
 

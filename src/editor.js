@@ -11,11 +11,13 @@ import HistoryPlugin from 'rete-history-plugin';
 
 import { OutputComponent } from "./components/outputComponent.js";
 import { NumberComponent } from "./components/numberComponent.js"
+import { BooleanComponent } from "./components/booleanOperator.js";
 import { SumComponent } from "./components/sumComponent.js"
 import { MinComponent } from "./components/minComponent.js"
 import { TestNode } from "./components/testNode.js";
 import { ObjectComponent } from "./components/objectComponent.js";
 import { StringComponent } from "./components/stringComponent.js";
+import { EqualComponent } from "./components/equalComponent.js";
 
 import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
@@ -60,18 +62,20 @@ export async function createEditor(){
     })
 
     const numComponent = new NumberComponent();
+    const boolComponent = new BooleanComponent();
     const sumComponent = new SumComponent();
     const minComponent = new MinComponent();
     const outputComponent = new OutputComponent();
     const objectComponent = new ObjectComponent();
     const stringComponent = new StringComponent();
-
+    const equalComponent = new EqualComponent();
     const scheduleComponent = new ScheduleComponent();
     const apiComponent = new APIComponent();
     const mercuryComponent = new MercuryComponent();
 
     const testNode = new TestNode();
     editor.register(numComponent);
+    editor.register(boolComponent);
     editor.register(sumComponent);
     editor.register(minComponent);
     editor.register(outputComponent);
@@ -81,16 +85,19 @@ export async function createEditor(){
     editor.register(apiComponent);
     editor.register(mercuryComponent);
     editor.register(scheduleComponent);
+    editor.register(equalComponent);
 
 
     const engine = new Rete.Engine('demo@0.1.0');
     engine.register(numComponent);
+    engine.register(boolComponent);
     engine.register(sumComponent);
     engine.register(minComponent);
     engine.register(outputComponent);
     engine.register(testNode);
     engine.register(objectComponent);
     engine.register(stringComponent);
+    engine.register(equalComponent);
 
     engine.register(apiComponent);
     engine.register(scheduleComponent);

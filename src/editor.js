@@ -19,6 +19,7 @@ import { StringComponent } from "./components/stringComponent.js";
 
 import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
+import { MercuryComponent } from "./components/objects/Mercury.js";
 import Logger from "js-logger";
 
 const testData = require('./editor.json');
@@ -67,6 +68,7 @@ export async function createEditor(){
 
     const scheduleComponent = new ScheduleComponent();
     const apiComponent = new APIComponent();
+    const mercuryComponent = new MercuryComponent();
 
     const testNode = new TestNode();
     editor.register(numComponent);
@@ -77,7 +79,7 @@ export async function createEditor(){
     editor.register(objectComponent);
     editor.register(stringComponent);
     editor.register(apiComponent);
-
+    editor.register(mercuryComponent);
     editor.register(scheduleComponent);
 
 
@@ -92,6 +94,7 @@ export async function createEditor(){
 
     engine.register(apiComponent);
     engine.register(scheduleComponent);
+    engine.register(mercuryComponent);
 
     editor.fromJSON(testData);
 

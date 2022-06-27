@@ -21,6 +21,15 @@ export class OutputComponent extends Rete.Component {
 
     worker(node, inputs, outputs) {
         Logger.debug('output node: ', inputs['in']);
-        this.editor.nodes.find(n => n.id == node.id).controls.get('output_view').setValue(inputs['in']);
+        let input;
+        
+        if (typeof inputs['in'][0] == 'object'){
+            input = JSON.stringify(inputs['in'][0]);
+        }
+        else {
+            input = inputs['in'][0];
+        }
+
+        this.editor.nodes.find(n => n.id == node.id).controls.get('output_view').setValue(input);
     }
 }

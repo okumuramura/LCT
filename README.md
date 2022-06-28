@@ -1,6 +1,8 @@
-# lct3
+# LCT. Low-Code Telemetry system.
+LCT is a visual-based programming editor for telemetry systems. The system contains modules necessary to prepare a scheme for further collection and processing of telemetry data. LCT has a module-based template what allow to add new nodes easely.
 
-## Project setup
+
+## Installing dependencies
 ```
 npm install
 ```
@@ -14,11 +16,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

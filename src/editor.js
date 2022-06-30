@@ -12,9 +12,7 @@ import HistoryPlugin from 'rete-history-plugin';
 import { OutputComponent } from "./components/outputComponent.js";
 import { NumberComponent } from "./components/numberComponent.js"
 import { BooleanComponent } from "./components/booleanOperator.js";
-import { SumComponent } from "./components/sumComponent.js"
 import { MinComponent } from "./components/minComponent.js"
-import { TestNode } from "./components/testNode.js";
 import { ObjectComponent } from "./components/objectComponent.js";
 import { StringComponent } from "./components/stringComponent.js";
 import { EqualComponent } from "./components/equalComponent.js";
@@ -25,6 +23,9 @@ import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
 import { MercuryComponent } from "./components/objects/Mercury.js";
 import { MQTTComponent } from "./components/objects/MQTTComponent.js";
+
+// import { TestNode } from "./components/testNode.js";
+
 import Logger from "js-logger";
 
 const testData = require('./editor.json');
@@ -88,7 +89,6 @@ export async function createEditor(){
 
     const numComponent = new NumberComponent();
     const boolComponent = new BooleanComponent();
-    const sumComponent = new SumComponent();
     const minComponent = new MinComponent();
     const outputComponent = new OutputComponent();
     const objectComponent = new ObjectComponent();
@@ -101,13 +101,12 @@ export async function createEditor(){
     const mqttComponent = new MQTTComponent();
     const jsonParserComponent = new JsonParserComponent();
 
-    const testNode = new TestNode();
+    // const testNode = new TestNode();
+
     editor.register(numComponent);
     editor.register(boolComponent);
-    editor.register(sumComponent);
     editor.register(minComponent);
     editor.register(outputComponent);
-    editor.register(testNode);
     editor.register(objectComponent);
     editor.register(stringComponent);
     editor.register(apiComponent);
@@ -117,15 +116,13 @@ export async function createEditor(){
     editor.register(arithmeticComponent);
     editor.register(mqttComponent);
     editor.register(jsonParserComponent);
-
+    // editor.register(testNode);
 
     const engine = new Rete.Engine('demo@0.1.0');
     engine.register(numComponent);
     engine.register(boolComponent);
-    engine.register(sumComponent);
     engine.register(minComponent);
     engine.register(outputComponent);
-    engine.register(testNode);
     engine.register(objectComponent);
     engine.register(stringComponent);
     engine.register(equalComponent);
@@ -135,6 +132,7 @@ export async function createEditor(){
     engine.register(scheduleComponent);
     engine.register(mercuryComponent);
     engine.register(mqttComponent);
+    // engine.register(testNode);
 
     editor.fromJSON(testData);
 

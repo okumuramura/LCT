@@ -24,6 +24,8 @@ export class DropdownControl extends Rete.Control {
         ctx.value = value;
     }
 
+
+    // TODO fix that method (vue warnings!)
     updateOptions(options) {
         const ctx = this.vueContext || this.props;
         ctx.options = options;

@@ -4,6 +4,7 @@ node_modules
 
 # local files
 editor.json
+testNode.js
 
 # local env files
 .env.local

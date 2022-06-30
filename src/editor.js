@@ -65,7 +65,7 @@ export async function createEditor() {
     editor.use(MinimapPlugin);
     editor.use(HistoryPlugin, { keyboard: true });
     editor.use(ContextMenuPlugin, {
-        searchBar: true,
+        searchBar: false,
         delay: 0,
         items: {
 
@@ -100,6 +100,7 @@ export async function createEditor() {
     editor.register(numComponent);
     editor.register(boolComponent);
     editor.register(minComponent);
+    editor.register(arithmeticComponent);
     editor.register(outputComponent);
     editor.register(objectComponent);
     editor.register(stringComponent);
@@ -107,7 +108,7 @@ export async function createEditor() {
     editor.register(mercuryComponent);
     editor.register(scheduleComponent);
     editor.register(equalComponent);
-    editor.register(arithmeticComponent);
+    
     editor.register(mqttComponent);
     editor.register(jsonParserComponent);
     // editor.register(testNode);

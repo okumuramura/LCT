@@ -16,3 +16,13 @@ npm run serve
 ```
 npm run build
 ```
+
+## Controls
+| Key         | Action                     |
+|-------------|----------------------------|
+| Delete      | Delete selected node       |
+| Space       | Open context menu          |
+| Home        | Back to default view       |
+| Ctrl + S    | Save document (not yet)    |
+| Mouse right | Open context menu          |
+| Mouse wheel | Zoom +/-                   |

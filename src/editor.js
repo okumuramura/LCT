@@ -65,7 +65,7 @@ export async function createEditor() {
     editor.use(MinimapPlugin);
     editor.use(HistoryPlugin, { keyboard: true });
     editor.use(ContextMenuPlugin, {
-        searchBar: false,
+        searchBar: true,
         delay: 0,
         items: {
 

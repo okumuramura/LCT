@@ -15,7 +15,7 @@ export class EqualComponent extends Rete.Component {
         let in1 = new Rete.Input('in1', 'value 1', anySocket);
         let in2 = new Rete.Input('in2', 'value 2', anySocket);
         let out = new Rete.Output('out', 'result', boolSocket);
-        
+
         in1.addControl(new InputControl(this.editor, 'in1', false, 'text', ''));
         in2.addControl(new InputControl(this.editor, 'in2', false, 'text', ''));
 
@@ -30,7 +30,7 @@ export class EqualComponent extends Rete.Component {
 
 
         outputs['out'] = (
-            in1 == in2 
+            in1 == in2
             && !(in1 === undefined || in2 === undefined)
         );
 

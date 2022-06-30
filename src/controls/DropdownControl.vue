@@ -1,9 +1,5 @@
 <template>
-  <form
-  @dblclick.stop=""
-  @pointerdown.stop=""
-  @pointermove.stop=""
-  @mousedown.stop>
+  <form @dblclick.stop="" @pointerdown.stop="" @pointermove.stop="" @mousedown.stop>
     {{ label }}
     <select @change="onChange($event)" v-model="value">
       <option v-for="option in options" v-bind:key="option" :value="option">{{ option }}</option>
@@ -20,7 +16,7 @@ export default {
     }
   },
   methods: {
-    onChange(e){
+    onChange(e) {
       this.value = e.target.value;
       this.update();
     },
@@ -32,7 +28,7 @@ export default {
     }
   },
   mounted() {
-    if (this.getData(this.ikey) === undefined){
+    if (this.getData(this.ikey) === undefined) {
       this.value = this.initial;
       this.putData(this.ikey, this.initial);
     }

@@ -31,29 +31,29 @@ import Logger from "js-logger";
 const testData = require('./editor.json');
 
 function syntaxHighlight(json) {
-  if (typeof json != 'string') {
-       json = JSON.stringify(json, undefined, 2);
-  }
-  json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-      var cls = 'json-number';
-      if (/^"/.test(match)) {
-          if (/:$/.test(match)) {
-              cls = 'json-key';
-          } else {
-              cls = 'json-string';
-          }
-      } else if (/true|false/.test(match)) {
-          cls = 'json-boolean';
-      } else if (/null/.test(match)) {
-          cls = 'json-null';
-      }
-      return '<span class="' + cls + '">' + match + '</span>';
-  });
+    if (typeof json != 'string') {
+        json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'json-number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'json-key';
+            } else {
+                cls = 'json-string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'json-boolean';
+        } else if (/null/.test(match)) {
+            cls = 'json-null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
 }
 
 
-export async function createEditor(){
+export async function createEditor() {
 
     const container = document.querySelector('#rete');
     const json_output = document.querySelector('#json-output')
@@ -64,27 +64,21 @@ export async function createEditor(){
     editor.use(KeyboardPlugin);
     editor.use(MinimapPlugin);
     editor.use(HistoryPlugin, { keyboard: true });
-    // editor.use(AreaPlugin, {
-    //   background: false,
-    //   snap: false,
-    //   scaleExtent: { min: 0.1, max: 1 },
-    //   translateExtent: { width: 2000, height: 4000 }
-    // });
     editor.use(ContextMenuPlugin, {
         searchBar: false,
         delay: 0,
         items: {
-            
+
         },
         allocate(component) {
             if (component.contextSubmenu === undefined)
-              return [];
+                return [];
             else
-              return component.contextSubmenu;
-		},
-		rename(component) {
-			return component.name;
-		}
+                return component.contextSubmenu;
+        },
+        rename(component) {
+            return component.name;
+        }
     })
 
     const numComponent = new NumberComponent();
@@ -144,10 +138,16 @@ export async function createEditor(){
     });
 
     editor.on('keydown', (e) => {
-      if (e.key == 'Home')
-        editor.view.area.zoom(1, 0, 0);
-        editor.view.area.translate(0, 0);
-        editor.trigger('process');
+        if (e.key == 'Home') {
+            editor.view.area.zoom(1, 0, 0);
+            editor.view.area.translate(0, 0);
+            editor.trigger('process');
+        }
+        else if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            Logger.debug('saving state...');
+            // TODO Save layout here
+        }
     })
 
     // editor.on('scheduled', (data) => {

@@ -13,13 +13,13 @@ export class APIComponent extends Rete.Component {
 
     builder(node) {
         let host = new Rete.Input('host', 'host', stringSocket);
-        let port  = new Rete.Input('port', 'port', numSocket);
+        let port = new Rete.Input('port', 'port', numSocket);
         let body = new Rete.Input('body', 'body', objectSocket);
         let trigger = new Rete.Input('trigger', 'trigger', boolSocket);
 
         host.addControl(new InputControl(this.editor, 'host', false, 'text', '127.0.0.1', 'host'));
         port.addControl(new InputControl(this.editor, 'port', false, 'number', 8080, 'port'));
-        
+
         node.addInput(host);
         node.addInput(port);
         node.addInput(body);
@@ -35,7 +35,7 @@ export class APIComponent extends Rete.Component {
         let trigger = inputs['trigger'];
 
         Logger.debug('api request id:%d [%s:%d, %s]', node.id, host, port, trigger);
-        
+
         // let response = await fetch(
         //     'https://' + host + ":" + port,
         //     {

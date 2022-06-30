@@ -17,7 +17,7 @@ export class MQTTComponent extends Rete.Component {
         let port = new Rete.Input('port', 'port', numSocket);
         let user = new Rete.Input('user', 'user', stringSocket);
         let password = new Rete.Input('password', 'password', stringSocket);
-        
+
         host.addControl(new InputControl(this.editor, 'host', false, 'text', '127.0.0.1', 'host'));
         port.addControl(new InputControl(this.editor, 'port', false, 'number', 8883, 'port'));
         user.addControl(new InputControl(this.editor, 'user', false, 'text', '', 'username'));

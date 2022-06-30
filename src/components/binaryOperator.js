@@ -29,6 +29,6 @@ export class BinaryOperator extends Rete.Component {
     }
 
     worker(node, inputs, outputs) {
-         // empty interface
+        // empty interface
     }
 }

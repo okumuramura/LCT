@@ -1,19 +1,9 @@
 <template>
-<span
-    style="color:white;"
-    >
-    <input
-        type="checkbox"
-        :readonly="readonly"
-        v-model="checked"
-        v-on:input="onChange($event)"
-        @dblclick.stop=""
-        @pointerdown.stop=""
-        @pointermove.stop=""
-        @mousedown.stop
-    />
-    {{ label }}
-</span>
+    <span style="color:white;">
+        <input type="checkbox" :readonly="readonly" v-model="checked" v-on:input="onChange($event)" @dblclick.stop=""
+            @pointerdown.stop="" @pointermove.stop="" @mousedown.stop />
+        {{ label }}
+    </span>
 </template>
 
 <script>

@@ -13,7 +13,7 @@ export class ScheduleComponent extends Rete.Component {
     }
 
     builder(node) {
-        let trigger  = new Rete.Input('trigger', 'trigger', boolSocket);
+        let trigger = new Rete.Input('trigger', 'trigger', boolSocket);
         let week = new Rete.Input('week', 'week', stringSocket);
         let hour = new Rete.Input('hour', 'hour', stringSocket);
         let seconds = new Rete.Input('seconds', 'seconds', stringSocket);

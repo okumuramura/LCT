@@ -14,7 +14,7 @@ export class OutputComponent extends Rete.Component {
 
     builder(node) {
         let input = new Rete.Input('in', 'in', anySocket);
-        
+
         node.addInput(input);
         node.addControl(new InputControl(this.editor, 'output_view', true, 'text'))
     }
@@ -22,8 +22,8 @@ export class OutputComponent extends Rete.Component {
     worker(node, inputs, outputs) {
         Logger.debug('output node: ', inputs['in']);
         let input;
-        
-        if (typeof inputs['in'][0] == 'object'){
+
+        if (typeof inputs['in'][0] == 'object') {
             input = JSON.stringify(inputs['in'][0]);
         }
         else {

@@ -66,7 +66,7 @@ export async function createEditor() {
     editor.use(HistoryPlugin, { keyboard: true });
     editor.use(ContextMenuPlugin, {
         searchBar: false,
-        delay: 0,
+        delay: 130,
         items: {
 
         },

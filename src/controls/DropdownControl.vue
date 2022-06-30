@@ -6,7 +6,7 @@
   @mousedown.stop>
     {{ label }}
     <select @change="onChange($event)" v-model="value">
-      <option v-for="option in options" :value="option">{{ option }}</option>
+      <option v-for="option in options" v-bind:key="option" :value="option">{{ option }}</option>
     </select>
   </form>
 </template>
@@ -16,12 +16,11 @@ export default {
   props: ['initial', 'readonly', 'label', 'options', 'emitter', 'ikey', 'type', 'getData', 'putData'],
   data() {
     return {
-      value: this.initial || ''
+      value: this.initial || '',
     }
   },
   methods: {
     onChange(e){
-      console.log(e.target.value);
       this.value = e.target.value;
       this.update();
     },

@@ -19,6 +19,7 @@ import { ObjectComponent } from "./components/objectComponent.js";
 import { StringComponent } from "./components/stringComponent.js";
 import { EqualComponent } from "./components/equalComponent.js";
 import { ArithmeticComponent } from "./components/arithmeticComponent.js";
+import { JsonParserComponent } from "./components/jsonParserComponent.js";
 
 import { ScheduleComponent } from "./components/objects/scheduleComponent.js";
 import { APIComponent } from "./components/objects/APIComponent.js";
@@ -98,6 +99,7 @@ export async function createEditor(){
     const apiComponent = new APIComponent();
     const mercuryComponent = new MercuryComponent();
     const mqttComponent = new MQTTComponent();
+    const jsonParserComponent = new JsonParserComponent();
 
     const testNode = new TestNode();
     editor.register(numComponent);
@@ -114,6 +116,7 @@ export async function createEditor(){
     editor.register(equalComponent);
     editor.register(arithmeticComponent);
     editor.register(mqttComponent);
+    editor.register(jsonParserComponent);
 
 
     const engine = new Rete.Engine('demo@0.1.0');
@@ -127,7 +130,7 @@ export async function createEditor(){
     engine.register(stringComponent);
     engine.register(equalComponent);
     engine.register(arithmeticComponent);
-
+    engine.register(jsonParserComponent);
     engine.register(apiComponent);
     engine.register(scheduleComponent);
     engine.register(mercuryComponent);

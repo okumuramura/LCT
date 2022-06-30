@@ -23,4 +23,9 @@ export class DropdownControl extends Rete.Control {
         const ctx = this.vueContext || this.props;
         ctx.value = value;
     }
+
+    updateOptions(options) {
+        const ctx = this.vueContext || this.props;
+        ctx.options = options;
+    }
 }
